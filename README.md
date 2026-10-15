@@ -88,7 +88,11 @@ sh verify.sh /tmp/s95-check 8
 ```
 
 It needs git, Python 3 with numpy, and Rust ≥ 1.86. The checkers are fetched from upstream at
-the pinned commit; they are not bundled. <REPLAY>
+the pinned commit; they are not bundled.
+
+A clean run from a fresh clone took 5 min 8 s wall on 8 threads of an i7-14700K under WSL2 (39
+CPU-minutes). Each zm_mixed job prints `VERIFIED-D4 (PARTIAL)` because it covers only its own
+sub-root; `tools/check_coverage.py` then checks that the pieces tile the whole region.
 
 ## How the cover was found (not part of the proof)
 
